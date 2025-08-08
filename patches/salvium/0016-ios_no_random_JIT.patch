@@ -1,0 +1,41 @@
+Subject: [PATCH] ios no randomx JIT
+From: julian <julian@cypherstack.com>
+---
+Index: src/cryptonote_core/cryptonote_tx_utils.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cryptonote_core/cryptonote_tx_utils.cpp b/src/cryptonote_core/cryptonote_tx_utils.cpp
+--- a/src/cryptonote_core/cryptonote_tx_utils.cpp	(revision f9f0a43b1f5d9ec9f444bafa88073f1ddaf6e344)
++++ b/src/cryptonote_core/cryptonote_tx_utils.cpp	(date 1752524175340)
+@@ -1296,16 +1296,24 @@
+
+   bool get_block_longhash(const Blockchain *pbc, const blobdata& bd, crypto::hash& res, const uint64_t height, const int major_version, const crypto::hash *seed_hash, const int miners)
+   {
+-    crypto::hash hash;
+     if (pbc != NULL)
+     {
++      crypto::hash hash;
+       const uint64_t seed_height = rx_seedheight(height);
+       hash = seed_hash ? *seed_hash : pbc->get_pending_block_id_by_height(seed_height);
+-    } else
+-    {
+-      memset(&hash, 0, sizeof(hash));  // only happens when generating genesis block
+-    }
+-    rx_slow_hash(hash.data, bd.data(), bd.size(), res.data);
++      rx_slow_hash(hash.data, bd.data(), bd.size(), res.data);
++    } else
++    {
++      // only happens when generating genesis block
++      // Hardcoded genesis for ios compat
++      const char* hex = "4ade63d5ccb8cfae075e8b882514c471f35da95f85dd1b20fdcd6f3a95caabc5";
++      char bytes[32];
++      for (int i = 0; i < 32; i++) {
++        char byte_str[3] = { hex[i * 2], hex[i * 2 + 1], '\0' };
++        bytes[i] = (char)strtol(byte_str, NULL, 16);
++      }
++      memcpy(res.data, bytes, sizeof(bytes));
++    }
+     return true;
+   }
