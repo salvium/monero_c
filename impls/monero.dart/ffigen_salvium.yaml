@@ -1,0 +1,11 @@
+name: SalviumC
+description: monero_c salvium bindings
+output: 'lib/src/generated_bindings_salvium.g.dart'
+headers:
+  entry-points:
+    - '../../salvium_libwallet2_api_c/src/main/cpp/wallet2_api_c.h'
+
+exclude-all-by-default: true
+functions:
+  include:
+    - "SALVIUM_.+"

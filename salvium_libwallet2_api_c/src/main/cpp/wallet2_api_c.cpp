@@ -290,6 +290,12 @@ bool SALVIUM_TransactionInfo_isCoinbase(void* txInfo_ptr) {
     return txInfo->isCoinbase();
     DEBUG_END()
 }
+uint8_t SALVIUM_TransactionInfo_type(void* txInfo_ptr) {
+    DEBUG_START()
+    Monero::TransactionInfo *txInfo = reinterpret_cast<Monero::TransactionInfo*>(txInfo_ptr);
+    return txInfo->type();
+    DEBUG_END()
+}
 uint64_t SALVIUM_TransactionInfo_amount(void* txInfo_ptr) {
     DEBUG_START()
     Monero::TransactionInfo *txInfo = reinterpret_cast<Monero::TransactionInfo*>(txInfo_ptr);
@@ -306,6 +312,16 @@ uint64_t SALVIUM_TransactionInfo_blockHeight(void* txInfo_ptr) {
     DEBUG_START()
     Monero::TransactionInfo *txInfo = reinterpret_cast<Monero::TransactionInfo*>(txInfo_ptr);
     return txInfo->blockHeight();
+    DEBUG_END()
+}
+const char* SALVIUM_TransactionInfo_asset(void* txInfo_ptr) {
+    DEBUG_START()
+    Monero::TransactionInfo *txInfo = reinterpret_cast<Monero::TransactionInfo*>(txInfo_ptr);
+    std::string str = txInfo->asset();
+    const std::string::size_type size = str.size();
+    char *buffer = new char[size + 1];   //we need extra char for NUL
+    memcpy(buffer, str.c_str(), size + 1);
+    return buffer;
     DEBUG_END()
 }
 const char* SALVIUM_TransactionInfo_description(void* txInfo_ptr) {

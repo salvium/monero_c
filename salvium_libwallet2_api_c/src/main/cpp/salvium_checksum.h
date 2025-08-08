@@ -1,6 +1,6 @@
-#ifndef SALVIUMC_CHECKSUMS
-#define SALVIUMC_CHECKSUMS
-const char * SALVIUM_wallet2_api_c_h_sha256 = "9e80c4b59a0509aa02fbf01e8df2881b89f82225d1765bfa7856cbdbaf7af116";
-const char * SALVIUM_wallet2_api_c_cpp_sha256 = "d229507db508e574bd2badf4819a38dbead8c16a84311ad32c22c887a6003439-0232839913b13cf0ab0bb7ad25fff0c05f37d2fe";
-const char * SALVIUM_wallet2_api_c_exp_sha256 = "d0f95f1f3bc49f1f59fe4eb0b61826128d7d3bb75405d5a01a252d02db03097d";
+#ifndef MONEROC_CHECKSUMS
+#define MONEROC_CHECKSUMS
+const char * SALVIUM_wallet2_api_c_h_sha256 = "d6a6d49046e67051e6ee8409d025587a8fcfe16515346139c0723ec9031ba9bf";
+const char * SALVIUM_wallet2_api_c_cpp_sha256 = "a426ea10242ec51646cd8f27c1baecac1796035f518b66163ed3ed00255f6247-1f49c178ee19f55088c85be40215a12183b4ef02";
+const char * SALVIUM_wallet2_api_c_exp_sha256 = "e2d945d4c9e635008d23cbe936be5bb3e8f03addf54945827aed951e911f9784";
 #endif
