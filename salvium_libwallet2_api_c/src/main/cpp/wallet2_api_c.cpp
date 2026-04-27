@@ -1030,7 +1030,7 @@ void SALVIUM_SubaddressAccount_setLabel(void* subaddressAccount_ptr, uint32_t ac
 void SALVIUM_SubaddressAccount_refresh(void* subaddressAccount_ptr) {
     DEBUG_START()
     Monero::SubaddressAccount *subaddress = reinterpret_cast<Monero::SubaddressAccount*>(subaddressAccount_ptr);
-    return subaddress->refresh();
+    return subaddress->refresh("SAL1");
     DEBUG_END()
 }
 

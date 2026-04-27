@@ -58,7 +58,7 @@ diff --git a/src/wallet/api/wallet2_api.h b/src/wallet/api/wallet2_api.h
 index fcb8187d4..3d11929f9 100644
 --- a/src/wallet/api/wallet2_api.h
 +++ b/src/wallet/api/wallet2_api.h
-@@ -1217,7 +1217,10 @@ struct Wallet
+@@ -1363,7 +1363,10 @@ struct Wallet
      static void setDeviceReceivedData(unsigned char* data, size_t len);
      static void setDeviceSendData(unsigned char* data, size_t len);
      static void setLedgerCallback(void (*sendToLedgerDevice)(unsigned char *command, unsigned int cmd_len));
@@ -68,7 +68,7 @@ index fcb8187d4..3d11929f9 100644
      
      //! get yield information
      virtual YieldInfo * getYieldInfo() = 0;
- }; 
+ 
 diff --git a/src/wallet/wallet2.h b/src/wallet/wallet2.h
 index 4f324c238..bc4abc672 100644
 --- a/src/wallet/wallet2.h
